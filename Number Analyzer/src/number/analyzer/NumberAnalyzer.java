@@ -25,6 +25,7 @@ public class NumberAnalyzer< T extends Number>{
     */
     public NumberAnalyzer(T[] array){
         this.array = array;
+        
     }
     
 /*
@@ -103,7 +104,7 @@ public class NumberAnalyzer< T extends Number>{
      */
     public static void main(String[] args) {
         double [] numberLists = {1,2,3};
-         NumberAnalyzer<double> n1 = new  NumberAnalyzer<double>(numberLists);
+         NumberAnalyzer<Double> arrayOne = new  NumberAnalyzer<>(1.5, 2.5);
          System.out.println();
     }
     
