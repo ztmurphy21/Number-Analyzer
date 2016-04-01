@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package number.analyzer;
 
 import java.util.Arrays;
@@ -15,9 +11,9 @@ import java.util.Scanner;
  * @param <T>
  */
 public class NumberAnalyzer< T extends Number>{
-   Scanner keyboard = new Scanner(System.in);
+    //setting T array as final
     private final  T[] array;
-    private boolean order = false;
+    //seting global variable, since pulling from private method
     private Double sumOfNumbers;
     
     /*
@@ -29,10 +25,10 @@ public class NumberAnalyzer< T extends Number>{
     }
     
 /*
-    will calculate the sume in the array
+    will return the sum from calcSum method
     */
     
-  public Double sumOfNumbers(){
+  public Double getSum(){
       this.calcSum();
       return this.sumOfNumbers;
   }
@@ -55,7 +51,7 @@ public class NumberAnalyzer< T extends Number>{
   /*
   will get average number in array
   */
-  public Double Avg(){
+  public Double getAvg(){
     this.calcSum();
     double avg = this.sumOfNumbers/this.array.length;
     return avg;
@@ -94,18 +90,28 @@ public class NumberAnalyzer< T extends Number>{
       
   }
   // get total number of elements in array
-  private Double elements(Double x, Double y){
-      return x+y;
+  private Double getElements(){
+      double length = array.length;
+      return length;
   }
-      
+  
+   
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        double [] numberLists = {1,2,3};
-         NumberAnalyzer<Double> arrayOne = new  NumberAnalyzer<>(1.5, 2.5);
-         System.out.println();
+        //declaring array
+        Double [] numberLists = {44.0, 77.0, 11.0, 99.0, 55.0, 22.0};
+        //pulling arrayOne into NumberAnalyzer 
+         NumberAnalyzer<Double> arrayOne = new  NumberAnalyzer<Double>(numberLists);
+         //prinint out everything, like magic!
+         System.out.println("Number Analyzer Results: ");
+         System.out.println("Average is: " + arrayOne.getAvg());
+         System.out.println("The lowest number is: " + arrayOne.getLowest());
+         System.out.println("The highest  number is: " + arrayOne.getHighest());
+         System.out.println("The sum of the array is: " + arrayOne.getSum());
+         System.out.println("The number of elements in the array are: " + arrayOne.getElements());
     }
     
 }
